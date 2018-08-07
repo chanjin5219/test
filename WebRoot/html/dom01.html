@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img id="mg" src="../images/bg_img1.jpg"  />
+		
+		<input type="button"  value="change Image" onclick="change();" />
+		
+		
+		<table id="tab">
+			<tbody>
+				<tr>
+					<td>A</td>
+					<td>B</td>
+					<td>C</td>
+				</tr>
+				<tr>
+					<td>E</td>
+					<td>F</td>
+					<td>G</td>
+			</tr>
+			</tbody>
+			
+		</table>
+		<div id="dv">
+			
+			
+			
+		</div>
+	</body>
+</html>
+<script>
+function change()
+{
+//	document.getElementById("mg").src="../images/ny_top_img.gif";
+	
+	var mg=document.getElementById("mg");
+	mg.setAttribute("src","../images/ny_top_img.gif");
+	
+	alert(mg.getAttribute("src"));
+}
+	
+	
+function findTab()
+{
+	var tab=document.getElementById("tab");
+	//			tbody         tr			td            
+	alert(tab.childNodes[1].childNodes[0].childNodes[3].innerText);
+}
+	
+function createInput()
+{
+	var input=document.createElement("input");
+	input.setAttribute("type","text");
+	//document.body.appendChild(input);
+	//document.getElementById("dv").appendChild(input);
+	
+	var tab=document.getElementById("tab")
+	
+	document.body.insertBefore(input,tab);
+	
+	var tab1=tab.cloneNode(true);
+	
+	document.body.appendChild(tab1);
+	
+}
+
+
+function tab()
+{
+	var tab=document.getElementById("tab");
+	//alert(tab.rows[0].cells[1].innerText);
+	
+	var newRow=tab.insertRow(tab.rows.length);
+	
+	alert(tab.rows.length);
+	
+	var cell1=newRow.insertCell(0);
+	cell1.innerText="H";
+	
+	var cell2=newRow.insertCell(1);
+	cell2.innerText="j";
+	
+}
+tab();
+</script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.title{
+				
+			}
+			
+			.menu {
+				width: 450px;
+			}
+			.menudv{
+				width: 450px;
+				height: 128px;
+				/*overflow: hidden;*/
+			}
+			.hidden{
+				display: none;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery-3.3.1.js" ></script>
+	</head>
+	<body>
+		<input id="btn" type="button" value="click"   />
+		<table border="1" width="300px" cellpadding="0" cellspacing="0">
+			<tr class="title">
+				<td>A</td>
+				<td>b</td>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>b</td>
+			</tr>
+			<tr class="title">
+				<td>A</td>
+				<td>b</td>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>b</td>
+			</tr>
+		</table>
+		<div class="menudv">
+			<div id="mdv1">
+				<img src="../images/dahuangmao-01.png" / >
+			</div>
+			<div style="display: none;"  id="mdv2">
+				<img src="../images/dahuangmao-02.png" / >
+			</div>
+			<div style="display: none;" id="mdv3">
+				<img src="../images/dahuangmao-03.png" / >
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	
+	$(function(){
+		$("tr:even").css("background-color","#DC143C");
+		
+//		$("input").click(function(){
+//			
+//			$("").css("","");
+//			$("").css("","");
+//			$("").css("","");
+//		});
+		
+		
+		$(".menudv:visible").eq(0).hide();
+		$(".menudv div").eq(1).show();
+	});
+	
+	var btn=document.getElementById("btn");
+	
+	
+	
+//标签选择器
+//alert($("tr.title").length);
+//$("h2")
+
+//
+	
+	
+</script>
+
+
+

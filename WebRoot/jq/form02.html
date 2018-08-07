@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/lib/jquery.js"></script>
+		<script type="text/javascript" src="../js/dist/jquery.validate.min.js" ></script>
+	</head>
+	<body>
+		<fieldset>
+			<legend>Login</legend>
+			<form id="frm" class="cmxform" >
+			用户名： <input type="text" id="uname" name="uname" /> <br /><br />
+			密&nbsp;&nbsp;&nbsp;码：
+			<input type="password"  id="upwd" name="upwd" /><br /><br />
+			<input type="submit"/>
+			</form>
+		</fieldset>
+	</body>
+</html>
+<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+			alert("submitted!");
+//			form.Submit();
+		}
+	});
+	$().ready(function() {
+		$("#frm").validate(rules:{
+			uname:{
+				
+			},
+			upwd:{
+				
+			}
+		},messages:{
+			uname:{
+			},
+			upwd:{
+				
+			}
+		})
+		 $("#frm").validate({
+		    rules: {
+	      		uname:{
+					required:true,
+					minlength:2,
+					maxlength:8
+				},
+				upwd:{
+					required:true,
+					minlength:2,
+					maxlength:8
+				}	
+		    },
+		    messages: {
+		     		uname:{
+						required:"请输入用户名",
+						minlength:"用户名长度为2-8",
+						maxlength:"用户名长度为2-8"
+					},
+					upwd:{
+						required:"请输入密码",
+						minlength:"用户名长度为2-8",
+						maxlength:"用户名长度为2-8"
+					}
+	   		}
+	});	
+	});
+	
+	
+	
+</script>

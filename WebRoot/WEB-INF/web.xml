@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+	version="2.5">	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<resource-ref>
+		<res-ref-name>my12306</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	
+	
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>cn.my12306.servlet.UserServlet</servlet-class>
+		<init-param>
+			<param-name>kkk</param-name>
+			<param-value>abc</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+	   <servlet-name>xxx</servlet-name>
+	   <servlet-class>cn.my12306.servlet.xxx</servlet-class>
+	</servlet>
+	<servlet>
+	   <servlet-name>lg</servlet-name>
+	   <servlet-class>cn.my12306.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>regServlet</servlet-name>
+		<servlet-class>cn.my12306.servlet.RegisteServlet</servlet-class>
+	</servlet>
+
+	
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/userservice.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	   <servlet-name>xxx</servlet-name>
+	   <url-pattern>/xxx</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	   <servlet-name>lg</servlet-name>
+	   <url-pattern>/user/loginservlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>regServlet</servlet-name>
+		<url-pattern>/user/regServlet</url-pattern>
+	</servlet-mapping>
+	
+		
+</web-app>

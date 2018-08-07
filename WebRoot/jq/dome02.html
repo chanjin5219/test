@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.3.1.js" ></script>
+	</head>
+	<body>
+		<input type="password" />
+		<div id="events">
+			
+		</div>
+		
+		<input type="button" id="btn" value="click" />
+		<div id="dv">
+			
+			<img id="mg" src="../images/dahuangmao-01.png"/>
+		</div>
+		
+	</body>
+</html>
+<script>
+	$(function(){
+		
+		$("#btn").click(function(){
+			$("#dv").toggle();
+			
+			$("#dv").ad
+		});
+		
+		
+//		$("[type='password']").click(function(){
+//			
+//			
+//		});
+//		
+//		$("[type='password']").bind("click",function(){});
+//		$("[type='password']").bind("click keyup",function(){})
+//		$("[type='password']").bind(
+//			"click":function(){},
+//			"keyup":function(){}
+//		)
+		//$("[type='password']").unbind()
+		
+		
+		$("[type='password']").keyup(function(){
+			$("#events").append("keyup<br/>");
+		}).keydown(function(event){
+			
+			
+			$("#events").append("keydown\n"+event.keyCode+"<br/>");
+		}).keypress(function(){
+
+			$("#events").append("keypress<br/>");
+		});
+		
+		
+		
+		
+	});
+	
+	
+</script>

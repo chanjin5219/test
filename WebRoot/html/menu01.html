@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			nav,li{
+				margin: 0px;
+				padding: 0px;
+				
+			}
+			.menu {
+				width: 450px;
+			}
+			li{
+				list-style: none;
+				float: left;
+				width: 140px;
+				margin-right: 5px;
+				background-color: gainsboro;
+				text-align: center;
+				height: 30px;
+				padding-top: 10px;
+			}
+			
+			.chose{
+				background-color: crimson;
+			}
+			.clear{
+				clear: both;
+			}
+			.menudv{
+				width: 450px;
+				height: 128px;
+				/*overflow: hidden;*/
+			}
+			.hidden{
+				display: none;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="menu" id="menu"  >
+			<li onmouseover="change(this,3,1)">咨询</li>
+			<li onmouseover="change(this,3,2)">产品</li>
+			<li onmouseover="change(this,3,3)">营销</li>
+		</nav>
+		<div class="clear"></div>
+		<div class="menudv">
+			<div id="mdv1">
+				<img src="../images/dahuangmao-01.png" / >
+			</div>
+			<div class="hidden"  id="mdv2">
+				<img src="../images/dahuangmao-02.png" / >
+			</div>
+			<div class="hidden" id="mdv3">
+				<img src="../images/dahuangmao-03.png" / >
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+function $(id)
+{
+	return document.getElementById(id);
+}
+
+
+function change(sub,total,index)
+{
+	var menu=$("menu");
+	//li 改变
+	for(i=0;i<menu.childNodes.length;i++)
+	{
+		if(menu.childNodes[i].tagName=="LI"){	
+			menu.childNodes[i].className="";
+		}
+	}
+	sub.className="chose";
+	
+	//改变div
+	for(t=1;t<=total;t++)
+	{
+		if(t==index){
+			$("mdv"+t).className="show";
+		}
+		else
+		{
+			$("mdv"+t).className="hidden";
+		}
+	}
+	
+}
+//window.onload=function(){
+//	var menu=$("menu");
+//	for(i=0;i<menu.childNodes.length;i++)
+//	{
+//		if(menu.childNodes[i].tagName=="LI"){
+//			menu.childNodes[i].onmouseover=change(menu.childNodes[i]);
+//		}
+//	}
+//}
+	
+</script>

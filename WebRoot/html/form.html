@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.error{
+				color: crimson;
+			}
+			.ok{
+				color: forestgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset>
+			<legend>Login</legend>
+			用户名： <input type="text" id="uname" name="uname" 
+				placeholder="请输入用户名"  required="required"
+				onblur="check('uname',regName,'用户名首字母为a-zA-Z,长度为6-8位！');" /> 
+			<span id="unameTip"></span><br /><br />
+			密&nbsp;&nbsp;&nbsp;码： <input type="password"  placeholder="请输入密码" 
+				id="upwd" name="uname" 
+				onblur="check('upwd',regPwd,'密码首字符为大写之后为数字及字母，长度为6-12位！');"/>
+			<span id="upwdTip"></span><br /><br />
+			
+			<input type="submit" onsubmit="checkForm();" />
+		</fieldset>
+	</body>
+</html>
+<script>
+var regName=/^[a-zA-z]\w{5,7}$/;
+var regPwd=/^[A-Z]\w{5,11}$/;
+
+function $(id)
+{
+	return document.getElementById(id);
+}
+
+function check(id,reg,errmsg)
+{
+	var input=$(id);
+	if(!reg.test(input.value))
+	{
+		$(id+"Tip").innerHTML=errmsg;
+		$(id+"Tip").className="error";
+		return false;
+	}
+	$(id+"Tip").innerHTML="✓";
+	$(id+"Tip").className="ok";
+	return true;
+}
+
+function checkForm()
+{
+	if(check('uname',regName,'用户名首字母为a-zA-Z,长度为6-8位！')
+	&&check('upwd',regPwd,'密码首字符为大写之后为数字及字母，长度为6-12位！'))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+}
+
+	
+</script>

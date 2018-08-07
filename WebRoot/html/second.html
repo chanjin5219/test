@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form name="frm" id="frm">
+			<input type="text" id="uname" name="uname" value="xxx" />	<br/>		
+			<input type="password" id="upwd" name="upwd" />		<br/>
+			<input type="radio" id="man" name="sex" />		<br/>
+			<input type="radio" id="woman" name="sex" />		<br/>
+			
+			<input type="checkbox" id="lol" name="like" />		<br/>
+			<input type="checkbox" id="war" name="like" />	<br/>
+			<input type="checkbox" id="xxx" name="like" />	<br/>
+		</form>
+		
+		<div id="dv">
+			新浪
+		</div>
+		<br />
+		<br />
+		<br />
+		<input type="button" value="改变层的内容" onclick="changeContent();" /><br />
+		<input type="button" value="取季节" onclick="getSeason();" /><br />
+	
+		<input type="text" id="spring" name="season" value="春" /><br />
+		<input type="text" id="summer" name="season" value="夏" /><br />
+		<input type="text" id="fall" name="season" value="秋" /><br />
+		<input type="text" id="winter" name="season" value="冬" /><br />
+	</body>
+</html>
+<script>
+	
+//	var val= document.getElementById("uname").value;
+//	alert(val);
+//	document.getElementById("uname").value="abc";
+	
+	var likes=document.getElementsByName("like");
+//	for (i=0;i<likes.length;i++) {
+//		alert(likes[i].type);
+//	}
+
+//	document.getElementById("dv").innerHTML="<h1>xxxxxx</h1>";
+	
+	var len=document.getElementsByTagName("input").length;
+	alert(len);
+	
+	
+	function changeContent()
+	{
+		var dv=document.getElementById("dv");
+		dv.innerHTML="百度";
+	}
+	
+	
+	function getSeason()
+	{
+		var season=document.getElementsByName("season");
+		var str="";
+		for(i=0;i<season.length;i++) {
+			str+="<h1>"+season[i].value+"</h1>";
+		}
+		
+		document.getElementById("dv").innerHTML=str;
+	}
+</script>

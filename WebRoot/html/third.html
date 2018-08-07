@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			
+			form,div{
+				margin: 20px 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			
+			<input type="checkbox" id="chkAll" onclick="checkAll();" />全选 &nbsp;&nbsp;&nbsp;
+			<input type="checkbox" id="" onclick="reverse();" />反选 <br>
+			<input type="checkbox" id="lol" name="like" />LoL<br/>
+			<input type="checkbox" id="war" name="like" />War<br/>
+			<input type="checkbox" id="穿越火线" name="like" />穿越火线<br/>
+			<input type="checkbox" id="愤怒的小鸟" name="like"  />愤怒的小鸟<br/>	
+		</form>
+		<div id="sTime">
+			
+			
+			
+		</div>
+		<input type="button" id="btn" onclick="stopTime()" value="Stop" />
+	</body>
+</html>
+<script>
+	//1找全选框 
+	//2找一组checkbox
+	//3checkboxs.选中状态=全选框 .选中状态；
+function checkAll()
+{
+	var cAll=document.getElementById("chkAll");
+	var likes=document.getElementsByName("like");
+	for(i=0;i<likes.length;i++)
+	{
+		likes[i].checked=cAll.checked;
+	}	
+}
+//1找一组checkbox
+//2checkboxs.选中状态=！checkboxs.选中状态；
+function reverse()
+{
+	var likes=document.getElementsByName("like");
+	for(i=0;i<likes.length;i++)
+	{
+		likes[i].checked=!likes[i].checked;
+	}	
+}
+
+
+function showTime()
+{
+	var date=new Date();
+	
+	var dStr=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
+			+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+	
+	document.getElementById("sTime").innerHTML=dStr;
+	
+	
+	setTimeout("showTime()",1000);
+}
+
+showTime();
+
+var id=setInterval("showTime()",1000);
+ 
+var flag=true;
+function stopTime()
+{
+	if(flag)
+	{
+		clearInterval(id);
+		flag=false;
+		document.getElementById("btn").value="Start";
+	}
+	else
+	{
+		id=setInterval("showTime()",1000);
+		flag=true;
+		document.getElementById("btn").value="Stop";
+	}
+}
+</script>

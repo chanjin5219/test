@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.error{
+				color: crimson;
+			}
+			.ok{
+				color: forestgreen;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery-3.3.1.js" ></script>
+	</head>
+	<body>
+		<fieldset>
+			<legend>Login</legend>
+			用户名： <input type="text" id="uname" name="uname" 
+				placeholder="请输入用户名"  required="required"/> 
+			<span id="unameTip"></span><br /><br />
+			密&nbsp;&nbsp;&nbsp;码： <input type="password"  placeholder="请输入密码" 
+				id="upwd" name="upwd" />
+			<span id="upwdTip"></span><br /><br />
+			
+			<input type="submit" onsubmit="checkForm();" />
+		</fieldset>
+	</body>
+</html>
+<script>
+var regName=/^[a-zA-z]\w{5,7}$/;
+var regPwd=/^[A-Z]\w{5,11}$/;
+
+
+$(function(){
+	
+	$("#uname").blur(function(){
+		check($(this).attr("id"),regName,'用户名首字母为a-zA-Z,长度为6-8位！');
+	});
+	
+	$("#upwd").blur(function(){
+		check('upwd',regPwd,'密码首字符为大写之后为数字及字母，长度为6-12位！');
+	})
+	
+	
+	
+})
+
+function check(id,reg,errmsg)
+{
+//	var input=$(id);
+	if(!reg.test($("#"+id).val()))
+	{
+		$("#"+id+"Tip").html(errmsg);
+		$("#"+id+"Tip").removeClass().addClass("error");
+//		$(id+"Tip").innerHTML=errmsg;
+//		$(id+"Tip").className="error";
+		return false;
+	}
+	$("#"+id+"Tip").html("✓");
+	$("#"+id+"Tip").removeClass().addClass("ok");
+	return true;
+}
+
+function checkForm()
+{
+	if(check('uname',regName,'用户名首字母为a-zA-Z,长度为6-8位！')
+	&&check('upwd',regPwd,'密码首字符为大写之后为数字及字母，长度为6-12位！'))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+}
+
+	
+</script>

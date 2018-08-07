@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.3.1.js" ></script>
+	</head>
+	<body>
+		<ul id="menu">
+			<li>apple </li>
+			<li>cake</li>
+			<li>banana</li>
+		</ul>
+		
+		<input type="text" id="content"  />
+		<input type="button" id="btn" value="click" />
+	</body>
+</html>
+<script>
+$(function(){
+	
+	$("#btn").click(function(){
+		
+//		var val=$("#content").val();//
+//		//var $newli=$("<li>"+val+"</li>");//
+//		//$("#menu").append("<li>"+val+"</li>");
+//		$("#menu").html($("#menu").html()+"<li>"+val+"</li>"  );
+		$("li").each(function(i){
+			$(this).prepend(i+"&nbsp;&nbsp;");
+		})
+
+
+	})
+	
+//	for(i=8;i<len;i++)
+	
+})
+
+	
+</script>
+
